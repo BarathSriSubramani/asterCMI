@@ -1,0 +1,127 @@
+// navbar
+
+
+
+// offcanvas
+.pb_offcanvas-nav_v1 {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	z-index: 99;
+	opacity: 0;
+	visibility: hidden;
+	background: $black;
+	transition: .3s all ease-in-out;
+	&.active {
+		opacity: 1;
+		visibility: visible;
+	}
+	.pb_main-nav {
+		padding-top: 50px;
+		padding-right: 50px;
+		float: right;
+		text-align: right;
+		font-size: 30px;
+		height: 100vh;
+		overflow-y: auto;
+		li {
+			list-style: none;
+			line-height: 1.5;
+			margin-bottom: 10px;
+			a {
+				color: $white;
+				&.active {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
+.pb_offcanvas-header_v1 {
+	padding-top: 40px;
+	z-index: 2;
+	position: absolute;
+	width: 100%;
+	> .container {
+		position: relative;
+	}
+	.pb_site-name {
+		position: absolute;
+		left: 15px;
+	}
+	.pb_toggle-menu {
+		position: absolute;
+		right: 0px;
+		top: 17px;
+		@include media-breakpoint-down(sm) {
+			top: 13px;
+		}
+	}
+}
+
+
+// burger 
+#pb_nav-toggle {
+  background: transparent;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  transform: translate(0%, -50%);
+  &:hover {
+  	span:after {
+  		width: 32px;
+  	}
+  }
+}
+#pb_nav-toggle span,
+#pb_nav-toggle span:before,
+#pb_nav-toggle span:after {
+  cursor: pointer;
+  border-radius: 1px;
+  height: 2px;
+  width: 32px;
+  background: $black;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  display: block;
+  content: '';
+}
+
+#pb_nav-toggle span:before {
+  top: -10px;
+}
+
+#pb_nav-toggle span:after {
+  top: 10px;
+  width: 16px;
+}
+
+#pb_nav-toggle span,
+#pb_nav-toggle span:before,
+#pb_nav-toggle span:after {
+  transition: all 0.3s ease-in-out;
+}
+
+#pb_nav-toggle.active span {
+  background-color: transparent;
+}
+
+#pb_nav-toggle.active span:before,
+#pb_nav-toggle.active span:after {
+  top: 0;
+}
+
+#pb_nav-toggle.active span:before {
+  transform: rotate(135deg);
+}
+
+#pb_nav-toggle.active span:after {
+	width: 32px;
+  transform: rotate(-135deg);
+}
